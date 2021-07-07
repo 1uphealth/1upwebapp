@@ -1,0 +1,11 @@
+.DS_Store
+# package directories
+node_modules
+jspm_packages
+
+# build directories
+.serverless
+.next
+
+# local files
+config.json
