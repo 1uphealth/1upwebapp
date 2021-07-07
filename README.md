@@ -10,7 +10,7 @@ Create an application via the 1uphealth devconsole [https://1up.health/devconsol
 1. Checkout source code from the repo
 ```
 cd ~/
-git clone https://github.com/1uphealth/1upwebapp_public.git
+git clone https://github.com/1uphealth/1upwebapp.git
 ```
 
 
