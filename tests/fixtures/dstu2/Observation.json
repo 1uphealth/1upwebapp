@@ -1,0 +1,56 @@
+{"resourceType":"Bundle","type":"searchset","total":4,"entry":[{"fullUrl":"https://api.1up.health/fhir/dstu2/Observation/3d3d15496c258b4f903f8daf2957519304db9f9aa25ac0ac","search":{"mode":"match"},"resource":{"subject":{"reference":"Patient/3d3d15496c25"},"identifier":[{"value":"1-7050341","system":"https:fhir-myrecord.sandboxcerner.com"}],"meta":{"lastUpdated":"2019-06-02T02:43:31.930Z","versionId":"9000000000002"},"status":"final","valueCodeableConcept":{"coding":[{"system":"http://snomed.info/sct","code":"723505004"}],"text":"Low Risk"},"related":[{"type":"has-member","target":{"reference":"Observation/629021a2fe3415726e79af1e6505dccb8b31"}},{"type":"has-member","target":{"reference":"Observation/e5a7d49198cf1cb131e44a3ffac9d3a8a8e0"}}],"text":{"div":"<div><p><b>Observation</b></p><p><b>Patient</b>: 4342008</p><p><b>Date</b>: Aug 30, 2018  6:58 P.M. UTC</p><p><b>Status</b>: Final</p><p><b>Category</b>: Social History</p><p><b>Code</b>: Alcohol</p></div>","status":"generated"},"issued":"2018-08-30T18:58:37.000Z","code":{"coding":[{"system":"http://snomed.info/sct","code":"363905002","display":"Details of alcohol drinking behavior (observable entity)"}],"text":"Alcohol"},"resourceType":"Observation","category":{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"social-history","display":"Social History"}],"text":"Social History"},"id":"3d3d15496c258b4f903f8daf2957519304db9f9aa25ac0ac"}},{"fullUrl":"https://api.1up.health/fhir/dstu2/Observation/3d3d15496c25c31080ec884bcc32206654ffddecf4e9910c","search":{"mode":"match"},"resource":{"subject":{"reference":"Patient/3d3d15496c25"},"identifier":[{"value":"54-a9217867","system":"https:fhir-myrecord.sandboxcerner.com"}],"meta":{"lastUpdated":"2019-06-02T02:43:32.118Z","versionId":"9000000000002"},"status":"final","valueCodeableConcept":{"coding":[{"system":"http://snomed.info/sct","code":"26651000175106"}],"text":"No Risk"},"text":{"div":"<div><p><b>Observation</b></p><p><b>Patient</b>: 4342008</p><p><b>Date</b>: Aug 30, 2018  6:58 P.M. UTC</p><p><b>Status</b>: Final</p><p><b>Category</b>: Social History</p><p><b>Code</b>: Nutrition/Health</p></div>","status":"generated"},"issued":"2018-08-30T18:58:37.000Z","code":{"coding":[{"system":"http://snomed.info/sct","code":"384759009","display":"Nutrition, function (observable entity)"}],"text":"Nutrition/Health"},"resourceType":"Observation","category":{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"social-history","display":"Social History"}],"text":"Social History"},"id":"3d3d15496c25c31080ec884bcc32206654ffddecf4e9910c"}},{"fullUrl":"https://api.1up.health/fhir/dstu2/Observation/3d3d15496c25f25b406a57cb13de5b56fdcf9f7a00ab2510","search":{"mode":"match"},"resource":{"subject":{"reference":"Patient/3d3d15496c25"},"identifier":[{"value":"93-7050369","system":"https:fhir-myrecord.sandboxcerner.com"}],"meta":{"lastUpdated":"2019-06-02T02:43:31.913Z","versionId":"9000000000002"},"status":"final","valueCodeableConcept":{"coding":[{"system":"http://snomed.info/sct","code":"25594002","display":"Moderate risk of (contextual qualifier) (qualifier value)"}],"text":"Medium Risk"},"related":[{"type":"has-member","target":{"reference":"Observation/8e35f479115806dc975b641258adeabb1ed6"}},{"type":"has-member","target":{"reference":"Observation/f934b0d3932b80865143958bc29ce0242c76"}}],"text":{"div":"<div><p><b>Observation</b></p><p><b>Patient</b>: 4342008</p><p><b>Date</b>: Aug 30, 2018  6:58 P.M. UTC</p><p><b>Status</b>: Final</p><p><b>Category</b>: Social History</p><p><b>Code</b>: Tobacco</p></div>","status":"generated"},"issued":"2018-08-30T18:58:37.000Z","code":{"coding":[{"system":"http://snomed.info/sct","code":"229819007","display":"Tobacco use and exposure (observable entity)"},{"system":"http://loinc.org","code":"72166-2"}],"text":"Tobacco"},"resourceType":"Observation","category":{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"social-history","display":"Social History"}],"text":"Social History"},"id":"3d3d15496c25f25b406a57cb13de5b56fdcf9f7a00ab2510"}},{"fullUrl":"https://api.1up.health/fhir/dstu2/Observation/3d3d15496c25fd7e479ec7c822bd78fd093b853773aeb21d","search":{"mode":"match"},"resource":{"subject":{"reference":"Patient/3d3d15496c25"},"identifier":[{"value":"27-a8185861","system":"https:fhir-myrecord.sandboxcerner.com"}],"meta":{"lastUpdated":"2019-06-02T02:43:31.740Z","versionId":"9000000000002"},"status":"final","valueCodeableConcept":{"coding":[{"system":"http://snomed.info/sct","code":"228448000","display":"Exercises regularly (finding)"}],"text":"Regular exercise"},"text":{"div":"<div><p><b>Observation</b></p><p><b>Patient</b>: 4342008</p><p><b>Date</b>: Aug 30, 2018  6:58 P.M. UTC</p><p><b>Status</b>: Final</p><p><b>Category</b>: Social History</p><p><b>Code</b>: Exercise</p></div>","status":"generated"},"issued":"2018-08-30T18:58:37.000Z","code":{"coding":[{"system":"http://snomed.info/sct","code":"256235009","display":"Exercise (observable entity)"}],"text":"Exercise"},"resourceType":"Observation","category":{"coding":[{"system":"http://hl7.org/fhir/observation-category","code":"social-history","display":"Social History"}],"text":"Social History"},"id":"3d3d15496c25fd7e479ec7c822bd78fd093b853773aeb21d"}},
+  {
+    "resource": {
+      "identifier" : [
+        {
+          "system" : "https:ws-interconnect-fhir.partners.org",
+          "value" : "TrzHONRdTEjDSVkYD-2DxluA44lMqLjAmswqSE7HRCUrjJ1VrHujpoq4lWzRPrsw6B"
+        }
+      ],
+      "code" : {
+        "coding" : [
+          {
+            "system" : "http://loinc.org",
+            "code" : "29463-7",
+            "display" : "Body weight"
+          },
+          {
+            "system" : "http://loinc.org",
+            "code" : "3141-9",
+            "display" : "Body weight Measured"
+          },
+          {
+            "system" : "http://loinc.org",
+            "code" : "8716-3",
+            "display" : "Vital signs"
+          }
+        ],
+        "text" : "Weight"
+      },
+      "subject" : {
+        "reference" : "Patient/abfd2bfa515e",
+        "display" : "Yolandi"
+      },
+      "effectiveDateTime" : "2015-12-30T12:31:00.000Z",
+      "id" : "1231",
+      "category" : {
+        "coding" : [
+          {
+            "system" : "http://hl7.org/fhir/observation-category",
+            "code" : "vital-signs",
+            "display" : "Vital Signs"
+          }
+        ],
+        "text" : "Vital Signs"
+      },
+      "resourceType" : "Observation",
+      "status" : "final",
+      "valueQuantity" : {
+        "unit" : "kg",
+        "code" : "kg",
+        "system" : "http://unitsofmeasure.org",
+        "value" : 117
+      }
+    }
+  }
+]}

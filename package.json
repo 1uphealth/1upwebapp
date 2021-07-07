@@ -1,0 +1,86 @@
+{
+  "name": "1uphealth-demo-web-app",
+  "version": "1.0.0",
+  "description": "1upHealth Web App",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "build": "next build",
+    "start": "cross-env NODE_ENV=production node server.js",
+    "test": "jest",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "engines": {
+    "node": "~12.13.1",
+    "npm": "~6.12.1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "pages/*",
+      "components/*"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1uphealth/1upwebapp.git"
+  },
+  "keywords": [
+    "1upHealth",
+    "FHIR"
+  ],
+  "author": "1upHealth (eng@1up.health)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1uphealth/1upwebapp/issues"
+  },
+  "homepage": "https://github.com/1uphealth/1upwebapp#readme",
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "async": "^2.5.0",
+    "axios": "^0.18.0",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.3.1",
+    "cookie-session": "^1.3.1",
+    "create-react-class": "^15.6.3",
+    "cross-env": "^5.2.0",
+    "dotenv": "^6.2.0",
+    "dotenv-webpack": "^1.7.0",
+    "emailjs": "1.0.8",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "fhir-react": "0.0.8",
+    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^8.1.0",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.18.10",
+    "nprogress": "^0.2.0",
+    "passwordless": "1.1.2",
+    "passwordless-memorystore": "0.0.1",
+    "path-match": "^1.2.4",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-syntax-highlighter": "^10.3.0",
+    "reactstrap": "^7.1.0",
+    "serverless-apigw-binary": "^0.4.4",
+    "serverless-domain-manager": "^3.2.2",
+    "serverless-http": "^2.0.2",
+    "serverless-vpc-discovery": "^1.0.13"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.10.0",
+    "@typescript-eslint/parser": "^2.10.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-react-app": "^5.0.2",
+    "eslint-plugin-flowtype": "^3.13.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "prettier": "1.19.1"
+  }
+}
