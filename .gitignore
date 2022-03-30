@@ -8,4 +8,4 @@ jspm_packages
 .next
 
 # local files
-config.json
+.env.local

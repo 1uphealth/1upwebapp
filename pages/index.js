@@ -9,7 +9,7 @@ var createReactClass = require('create-react-class');
 // TODO decide: is Iframe component useful
 // eslint-disable-next-line no-unused-vars
 var Iframe = createReactClass({
-  render: function() {
+  render: function () {
     return <div></div>;
   },
 });

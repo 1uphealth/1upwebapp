@@ -3,19 +3,15 @@ const request = require('request');
 const async = require('async');
 const { availableResources } = require('./resourcesConfig');
 
-const ONEUP_DEMOWEBAPPLOCAL_CLIENTID =
-  process.env.ONEUP_DEMOWEBAPPLOCAL_CLIENTID;
-const ONEUP_DEMOWEBAPPLOCAL_CLIENTSECRET =
-  process.env.ONEUP_DEMOWEBAPPLOCAL_CLIENTSECRET;
 let accessTokenCache = {};
 const ROOT_API_URL = `https://api.1up.health`;
 const USER_API_URL = `https://api.1up.health`;
 const FHIR_API_URL = `https://api.1up.health/fhir`;
 
 function getTokenFromAuthCode(code, callback) {
-  var postUrl = `${ROOT_API_URL}/fhir/oauth2/token?client_id=${ONEUP_DEMOWEBAPPLOCAL_CLIENTID}&client_secret=${ONEUP_DEMOWEBAPPLOCAL_CLIENTSECRET}&code=${code}&grant_type=authorization_code`;
+  var postUrl = `${ROOT_API_URL}/fhir/oauth2/token?client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}&code=${code}&grant_type=authorization_code`;
 
-  request.post(postUrl, function(error, response, body) {
+  request.post(postUrl, function (error, response, body) {
     if (error) {
       console.log('error', error);
     }
@@ -37,13 +33,13 @@ function getTokenFromAuthCode(code, callback) {
 function getAuthCodeForExistingUser(email, callback) {
   request.post(
     {
-      url: `${ROOT_API_URL}/user-management/v1/user/auth-code?app_user_id=${email}&client_id=${ONEUP_DEMOWEBAPPLOCAL_CLIENTID}&client_secret=${ONEUP_DEMOWEBAPPLOCAL_CLIENTSECRET}`,
+      url: `${ROOT_API_URL}/user-management/v1/user/auth-code?app_user_id=${email}&client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`,
     },
     (error, response, body) => {
       const jsbody = JSON.parse(body);
       let oneupUserId = jsbody.oneup_user_id;
 
-      getTokenFromAuthCode(jsbody.code, function(access_token) {
+      getTokenFromAuthCode(jsbody.code, function (access_token) {
         accessTokenCache[email] = access_token;
         callback(oneupUserId);
       });
@@ -53,8 +49,8 @@ function getAuthCodeForExistingUser(email, callback) {
 
 // create new 1uphealth user
 function createOneUpUser(email, callback) {
-  let url = `${USER_API_URL}/user-management/v1/user?app_user_id=${email}&client_id=${ONEUP_DEMOWEBAPPLOCAL_CLIENTID}&client_secret=${ONEUP_DEMOWEBAPPLOCAL_CLIENTSECRET}`;
-  request.post(url, function(error, response, body) {
+  let url = `${USER_API_URL}/user-management/v1/user?app_user_id=${email}&client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`;
+  request.post(url, function (error, response, body) {
     if (error) {
       console.log('Error POSTing to 1up user-management: ', error);
       callback();
@@ -65,7 +61,7 @@ function createOneUpUser(email, callback) {
       if (jsbody.error === 'this user already exists') {
         getAuthCodeForExistingUser(email, callback);
       } else {
-        getTokenFromAuthCode(jsbody.code, function(access_token) {
+        getTokenFromAuthCode(jsbody.code, function (access_token) {
           accessTokenCache[email] = access_token;
           callback(oneupUserId);
         });
@@ -76,9 +72,9 @@ function createOneUpUser(email, callback) {
 
 // check for 1upehealth user
 function getOneUpUserId(email, callback) {
-  let getUrl = `${USER_API_URL}/user-management/v1/user?client_id=${ONEUP_DEMOWEBAPPLOCAL_CLIENTID}&client_secret=${ONEUP_DEMOWEBAPPLOCAL_CLIENTSECRET}&app_user_id=${email}`;
+  let getUrl = `${USER_API_URL}/user-management/v1/user?client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}&app_user_id=${email}`;
   console.log(getUrl);
-  request.get(getUrl, function(error, response, body) {
+  request.get(getUrl, function (error, response, body) {
     console.log('body', response.statusCode, body, '----', getUrl);
     let jsbody = JSON.parse(body);
     callback(jsbody.oneup_user_id);
@@ -87,12 +83,12 @@ function getOneUpUserId(email, callback) {
 
 // gets the 1uphealth user id from the user email address
 function getOrMakeOneUpUserId(email, callback) {
-  getOneUpUserId(email, function(oneupUserId) {
+  getOneUpUserId(email, function (oneupUserId) {
     if (
       typeof oneupUserId === 'undefined' ||
       typeof accessTokenCache[email] === 'undefined'
     ) {
-      createOneUpUser(email, function(oneupUserId) {
+      createOneUpUser(email, function (oneupUserId) {
         console.log('createOneUpUser oneupUserId', oneupUserId);
         callback(oneupUserId);
       });
@@ -117,7 +113,7 @@ function getFhirResourceBundle(
       Authorization: `Bearer ${oneupAccessToken}`,
     },
   };
-  request.get(options, function(error, response, body) {
+  request.get(options, function (error, response, body) {
     console.log('error', error);
     console.log('url', url);
     console.log('body', body);
@@ -137,13 +133,13 @@ function getFhirResourceBundle(
 }
 
 const endpointsToQuery = availableResources.reduce((data, item) => {
-  item.resourceVersions.forEach(el => {
+  item.resourceVersions.forEach((el) => {
     data.push({ apiVersion: el, resourceType: item.resourceType });
   });
   return data;
 }, []);
 
-const resourceDTO = fhirVersion => data => ({
+const resourceDTO = (fhirVersion) => (data) => ({
   ...data,
   fhirVersion: fhirVersion,
 });
@@ -152,12 +148,12 @@ function getAllFhirResourceBundles(oneupAccessToken, callback) {
   let responseData = {};
   async.map(
     endpointsToQuery,
-    function(params, callback) {
+    function (params, callback) {
       getFhirResourceBundle(
         params.apiVersion,
         params.resourceType,
         oneupAccessToken,
-        function(error, body) {
+        function (error, body) {
           if (error) {
             callback(error);
           } else {
@@ -183,7 +179,7 @@ function getAllFhirResourceBundles(oneupAccessToken, callback) {
         },
       );
     },
-    function(error, body) {
+    function (error, body) {
       if (error) {
         callback(error);
       } else {

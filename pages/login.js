@@ -12,7 +12,7 @@ export default class Login extends React.Component {
     };
   }
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
     this.setState({
       submitted: true,
@@ -27,7 +27,7 @@ export default class Login extends React.Component {
     });
   };
 
-  onEmailChange = e => {
+  onEmailChange = (e) => {
     this.setState({
       email: e.target.value,
     });

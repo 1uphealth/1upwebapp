@@ -7,7 +7,7 @@ import { logout, logoutEvent } from '../utils';
 
 export default class Header extends React.Component {
   componentDidMount() {
-    this.onLogout = eve => logoutEvent(eve, this.props.url);
+    this.onLogout = (eve) => logoutEvent(eve, this.props.url);
     window.addEventListener('storage', this.onLogout, false);
   }
 

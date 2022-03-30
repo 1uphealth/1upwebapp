@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const next = require('next');
 const bodyParser = require('body-parser');
@@ -49,9 +48,12 @@ app
       var oneupAccessToken =
         req.session.oneup_access_token ||
         req.headers.authorization.split(' ')[1];
-      oneup.getAllFhirResourceBundles(oneupAccessToken, function(responseData) {
-        res.send({ token: oneupAccessToken, resources: responseData });
-      });
+      oneup.getAllFhirResourceBundles(
+        oneupAccessToken,
+        function (responseData) {
+          res.send({ token: oneupAccessToken, resources: responseData });
+        },
+      );
     });
 
     server.get('/logout', (req, res) => {
@@ -66,6 +68,7 @@ app
     });
 
     server.get('/', auth.authUser, (req, res) => {
+      console.log("aaa");
       app.render(req, res, '/index', req.params);
     });
 
@@ -73,12 +76,12 @@ app
       return handle(req, res);
     });
 
-    server.listen(3000, err => {
+    server.listen(3000, (err) => {
       if (err) throw err;
       console.log('> Ready on http://localhost:3000');
     });
   })
-  .catch(ex => {
+  .catch((ex) => {
     console.error(ex.stack);
     process.exit(1);
   });
