@@ -15,7 +15,7 @@ export default class Dashboard extends React.Component {
     if (typeof req === 'undefined') {
       let dashboard = await fetch(`http://localhost:3000/api/dashboard`, {
         credentials: 'include',
-      }).then(r => r.json());
+      }).then((r) => r.json());
       return { dashboard, user };
     } else {
       let authHeader = {
@@ -23,7 +23,7 @@ export default class Dashboard extends React.Component {
       };
       let dashboard = await fetch(`http://localhost:3000/api/dashboard`, {
         headers: authHeader,
-      }).then(r => r.json());
+      }).then((r) => r.json());
       return { dashboard, user };
     }
   }
@@ -62,15 +62,15 @@ export default class Dashboard extends React.Component {
                 <br />
                 Looks like you have no patient data
                 <br />
-                <Link>
-                  <a href="/">Connect some health systems</a>
+                <Link href="/">
+                  <a>Connect some health systems</a>
                 </Link>
               </div>
             )}
           </div>
           <div style={{ textAlign: 'left' }}>
             {resourcesListToDisplayInOrder.map(
-              function(resourceType) {
+              function (resourceType) {
                 return (
                   <div>
                     {typeof this.props.dashboard.resources[resourceType] !=
@@ -84,7 +84,7 @@ export default class Dashboard extends React.Component {
                     {typeof this.props.dashboard.resources[resourceType] !=
                     'undefined'
                       ? this.props.dashboard.resources[resourceType].entry.map(
-                          function(resourceContainer) {
+                          function (resourceContainer) {
                             return (
                               <FhirResource
                                 fhirResource={resourceContainer.resource}

@@ -13,43 +13,21 @@ cd ~/
 git clone https://github.com/1uphealth/1upwebapp.git
 ```
 
-
-2. Add your API keys to app server session, ex. `vim ~/.bashrc` or `~/.bash_profile`
+2. Create `.env.local` configuration file with the same client_id
 ```
-export ONEUP_DEMOWEBAPPLOCAL_CLIENTSECRET="clientsecretclientsecret"
-export ONEUP_DEMOWEBAPPLOCAL_CLIENTID="clientidclientid"
-```
-save this
-```
-source ~/.bashrc
-source ~/.bash_profile
-```
-**For Windows:** - Add your API keys as Environment Variables. 
-- In Search, search for and then select: System (Control Panel)
-- Click the Advanced system settings link.
-- Click Environment Variables.
-- In the Edit System Variable (or New System Variable) window, specify the value of the PATH environment variable.
-- Reopen Command prompt window, and run your code. 
-
-3. Create `config.json` configuration file with the same client_id
-```
-{
-  "baseURL": "http://localhost:3000",
-  "clientId": "xxxxxxx",
-  "__clientId": "the client id must be hardcoded here because this will be client side",
-  "email": {
-    "sender": "address@demo.com"
-  }
-}
+BASE_URL="http://localhost:3000"
+CLIENT_ID="clientidclientid"
+CLIENT_SECRET="clientsecretclientsecret"
+EMAIL_SENDER="address@demo.com"
 ```
 
-4. Install & run the app
+3. Install & run the app
 ```
 npm install
 npm run dev
 ```
 
-5. Run the email server (python 2.7)
+4. Run the email server (python 2.7)
 ```
 sudo python -m smtpd -n -c DebuggingServer localhost:25
 ```

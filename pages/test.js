@@ -21,7 +21,7 @@ export default class Home extends React.Component {
           />
 
           <h1 className="text-center">Encounter</h1>
-          {dstu2Encounter.entry.map(function(eachEncounter) {
+          {dstu2Encounter.entry.map(function (eachEncounter) {
             return (
               <Resources.Encounter
                 jsonOpen={true}
@@ -32,7 +32,7 @@ export default class Home extends React.Component {
           })}
 
           <h1 className="text-center">Observation</h1>
-          {dstu2Observation.entry.map(function(eachObservation) {
+          {dstu2Observation.entry.map(function (eachObservation) {
             return (
               <FhirResource
                 jsonOpen={true}

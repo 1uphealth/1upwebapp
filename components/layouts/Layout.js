@@ -4,9 +4,8 @@ import NProgress from 'nprogress';
 import Router from 'next/router';
 
 // import fontawesomeStyle from 'font-awesome/css/font-awesome.css'
-import '../../styles/index.scss';
 
-Router.onRouteChangeStart = url => {
+Router.onRouteChangeStart = (url) => {
   console.log(`Loading: ${url}`);
   NProgress.start();
   console.log(`started: ${url}`);
@@ -14,7 +13,7 @@ Router.onRouteChangeStart = url => {
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
-const Layout = props => (
+const Layout = (props) => (
   <div>
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
